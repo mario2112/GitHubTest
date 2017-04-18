@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>etc</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>etc</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommand.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="AsyncInputCommand.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="IApplication.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="etc">
+      <UniqueIdentifier>{171deb96-b141-444a-87cf-dc67307bcb86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{7a3eab2c-a563-4ddb-8c7c-3708fca12c8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{9cf80dce-8fd6-4fd6-93b1-954896748e29}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>etc</Filter>
+    </ClCompile>
+    <ClCompile Include="AsyncInputCommand.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt">
+      <Filter>etc</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
