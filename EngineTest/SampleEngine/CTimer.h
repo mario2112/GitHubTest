@@ -24,17 +24,20 @@ public:
 	virtual void execute() noexcept
 	{
 		TimerTimePoint tStart{ TimerSystemClock::now() };
-		m_tRunTime = tStart - m_tCreateTime;
+		m_tRunTime = tStart - m_tStartTime;
 	}
 
-	//constexpr ChronoTimePoint getRunTime() const noexcept { return m_tCreateTime; };
+	constexpr TimerSeconds getStartTimeSeconds() const noexcept { return std::chrono::duration_cast< TimerSeconds >( m_tStartTime.time_since_epoch() ); };
+	template< typename T >
+	const T getStartTime() const noexcept { return std::chrono::duration_cast< T >( m_tStartTime.time_since_epoch() ); };
+
 	constexpr TimerSeconds getRunTimeSeconds() const noexcept { return m_tRunTime; };
 	template< typename T >
 	const T getRuntime() const noexcept { return std::chrono::duration_cast< T >( m_tRunTime ); };
 
 protected:
 
-	TimerTimePoint m_tCreateTime{ TimerSystemClock::now() };
+	TimerTimePoint m_tStartTime{ TimerSystemClock::now() };
 	TimerDuration m_tRunTime{ TimerDuration::zero() };
 };
 
