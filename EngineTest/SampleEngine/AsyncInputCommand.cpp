@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "AsyncInputCommand.h"
 
-CAsyncInputCommand::CAsyncInputCommand( int nKeyID, std::function< void( enKeyState eKeyState ) > fpCallback )
+CAsyncInputCommand::CAsyncInputCommand( int nKeyID, CommandCallbackFunction fpCallback )
 :	ICommand( nKeyID, fpCallback )
 {
 

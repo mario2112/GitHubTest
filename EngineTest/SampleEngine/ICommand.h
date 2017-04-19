@@ -12,17 +12,20 @@ public:
 		enKeyState_Pull,
 	};
 
+	using CommandCallbackFunction = std::function< void( enKeyState eKeyState ) >;
+
 public:
 
 	ICommand() = delete;
 	ICommand( ICommand& refCommand ) = delete;
-	ICommand( int nKeyID, std::function< void( enKeyState eKeyState ) > fpCallback )
+	ICommand( int nKeyID, CommandCallbackFunction fpCallback )
 		:	m_nKeyID( nKeyID )
 		,	m_fpCallback( fpCallback  )
 	{}
 
 	virtual ~ICommand(){}
 
+	virtual void initialize() abstract;
 	virtual void execute()
 	{
 		updateKeyState();
@@ -31,15 +34,16 @@ public:
 			m_fpCallback( m_eKeyState );
 	}
 
-	virtual void updateKeyState() abstract;
-
 	constexpr int getKeyID() const noexcept { return m_nKeyID; }
-
 	constexpr enKeyState getKeyState() const noexcept { return m_eKeyState; }
 
 protected:
 
-	std::function< void( enKeyState eKeyState ) > m_fpCallback{ nullptr };
+	virtual void updateKeyState() abstract;
+
+protected:
+
+	CommandCallbackFunction m_fpCallback{ nullptr };
 
 	int m_nKeyID{ 0 };
 

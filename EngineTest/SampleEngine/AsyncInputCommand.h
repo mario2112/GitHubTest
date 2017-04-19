@@ -8,10 +8,14 @@ public:
 
 	CAsyncInputCommand() = delete;
 	CAsyncInputCommand( CAsyncInputCommand& refInputcommand ) = delete;
-	CAsyncInputCommand( int nKeyID, std::function< void( enKeyState eKeyState ) > fpCallback );
+	CAsyncInputCommand( int nKeyID, CommandCallbackFunction fpCallback );
 	virtual ~CAsyncInputCommand();
+
+	virtual void initialize() noexcept override{};
 
 protected:
 
-	virtual void updateKeyState() noexcept override final;
+	virtual void updateKeyState() noexcept override;
 };
+
+typedef std::shared_ptr< CAsyncInputCommand > AsyncInputCommandHandle;
