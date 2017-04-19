@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "AsyncInputCommand.h"
-#include "Timer.h"
+#include "CTimer.h"
 
 void SampleInput( ICommand::enKeyState KeyState )
 {
@@ -11,20 +11,20 @@ int CALLBACK WinMain( HINSTANCE hInstance, HINSTANCE hPreInstance, LPSTR lpCmdLi
 {
 	CAsyncInputCommand tt( VK_LEFT, SampleInput );
 
-	CTimer TestTimer;
+	CTimer< long long > TestTimer;
 
 	while( 1 )
 	{
 		TestTimer.execute();
 
-		printf( "Nano = %lf, Micro = %lf, Milli = %lf, Seconds = %lf, Minutes = %lf, Hours = %lf, Days = %lf\n"
-			, TestTimer.getRuntime< CTimer::TimerNanoSeconds >().count()
-			, TestTimer.getRuntime< CTimer::TimerMicroSeconds >().count()
-			, TestTimer.getRuntime< CTimer::TimerMilliSeconds >().count()
-			, TestTimer.getRuntime< CTimer::TimerSeconds >().count()
-			, TestTimer.getRuntime< CTimer::TimerMinutes >().count()
-			, TestTimer.getRuntime< CTimer::TimerHours >().count()
-			, TestTimer.getRuntime< CTimer::TimerDays >().count()
+		printf( "Nano = %lld, Micro = %lld, Milli = %lld, Seconds = %lld, Minutes = %lld, Hours = %lld, Days = %lld\n"
+			, TestTimer.getRuntime< CTimer< long long >::TimerNanoSeconds >().count()
+			, TestTimer.getRuntime< CTimer< long long >::TimerMicroSeconds >().count()
+			, TestTimer.getRuntime< CTimer< long long >::TimerMilliSeconds >().count()
+			, TestTimer.getRuntime< CTimer< long long >::TimerSeconds >().count()
+			, TestTimer.getRuntime< CTimer< long long >::TimerMinutes >().count()
+			, TestTimer.getRuntime< CTimer< long long >::TimerHours >().count()
+			, TestTimer.getRuntime< CTimer< long long >::TimerDays >().count()
 			);
 	}
 

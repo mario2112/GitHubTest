@@ -13,10 +13,7 @@
     <ClInclude Include="AsyncInputCommand.h">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="IApplication.h">
-      <Filter>Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.h">
+    <ClInclude Include="CTimer.h">
       <Filter>Timer</Filter>
     </ClInclude>
   </ItemGroup>
@@ -26,9 +23,6 @@
     </Filter>
     <Filter Include="Input">
       <UniqueIdentifier>{7a3eab2c-a563-4ddb-8c7c-3708fca12c8e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Application">
-      <UniqueIdentifier>{9cf80dce-8fd6-4fd6-93b1-954896748e29}</UniqueIdentifier>
     </Filter>
     <Filter Include="Timer">
       <UniqueIdentifier>{df3710eb-8b40-4988-b1b7-774be7424d43}</UniqueIdentifier>
