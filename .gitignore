@@ -1,5 +1,11 @@
 /EngineTest/Debug/
-/EngineTest/EngineTestProject/Debug/
-/EngineTest/ExternLib/
+/EngineTest/x64/
 /EngineTest/SampleEngine/Debug/
+/EngineTest/SampleEngine/x64/
+/EngineTest/DirectX11Utility/Debug/
+/EngineTest/DirectX11Utility/x64/
+/EngineTest/EngineTestProject/Debug/
+/EngineTest/EngineTestProject/x64/
+/EngineTest/ExternLib/
 /EngineTest/.vs/
+/EngineTest/ipch/

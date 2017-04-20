@@ -11,7 +11,7 @@ public:
 	CAsyncInputCommand( int nKeyID, CommandCallbackFunction fpCallback );
 	virtual ~CAsyncInputCommand();
 
-	virtual void initialize() noexcept override{};
+	virtual void initialize() noexcept override{}
 
 protected:
 
