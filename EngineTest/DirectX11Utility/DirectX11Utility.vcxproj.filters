@@ -8,6 +8,9 @@
       <Filter>etc</Filter>
     </ClInclude>
     <ClInclude Include="D3DDeviceResource.h" />
+    <ClInclude Include="Define.h">
+      <Filter>etc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="etc">

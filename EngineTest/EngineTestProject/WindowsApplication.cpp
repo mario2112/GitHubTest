@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "WindowsApplication.h"
 
+#include "D3DDeviceResource.h"
+
+CD3DDeviceResource* g_TestResource = nullptr;
+
 CWindowsApplication::CWindowsApplication( HINSTANCE hInstance )
 	:	m_hInstance( hInstance )
 {
@@ -43,12 +47,15 @@ bool CWindowsApplication::initialize() noexcept
 	RegisterClass( &wndClass );
 
 	LPCWSTR lpszClass = L"SampleEngine";
-	m_hWnd = CreateWindow( lpszClass, lpszClass, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, nullptr, nullptr, m_hInstance, nullptr );
+	m_hWnd = CreateWindow( lpszClass, lpszClass, WS_OVERLAPPEDWINDOW, 0, 0, 1024, 768, nullptr, nullptr, m_hInstance, nullptr );
 	if( !m_hWnd )
 		return false;
 
 	ShowWindow( m_hWnd, SW_SHOW );
 	UpdateWindow( m_hWnd );
+
+	g_TestResource = new CD3DDeviceResource( m_hWnd, 1024, 768, true, false, 1, 1 );
+	g_TestResource->initialize();
 
 	return true;
 }
@@ -56,6 +63,10 @@ bool CWindowsApplication::initialize() noexcept
 bool CWindowsApplication::finalize() noexcept
 {
 	DestroyWindow( m_hWnd );
+
+	g_TestResource->finalize();
+	delete g_TestResource;
+
 	return true;
 }
 
@@ -80,6 +91,8 @@ bool CWindowsApplication::execute() noexcept
 		}
 		else
 		{
+			g_TestResource->clearRenderTargetView();
+			g_TestResource->present();
 		}
 	}
 
